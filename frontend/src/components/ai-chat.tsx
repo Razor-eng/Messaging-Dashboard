@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Send, ArrowLeft } from "lucide-react"
 import { formatDistanceToNow } from "date-fns"
-import { useAuth } from "@/context/auth-context"
 
 // AI response patterns
 const AI_RESPONSES = [
@@ -112,7 +111,6 @@ export default function AIChat() {
   const [input, setInput] = useState("")
   const [isTyping, setIsTyping] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
-  const { user } = useAuth()
 
   const getAIResponse = (userInput: string): string => {
     const lowerInput = userInput.toLowerCase()

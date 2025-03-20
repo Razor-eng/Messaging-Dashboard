@@ -29,10 +29,14 @@ api.interceptors.request.use(
   (error) => Promise.reject(error),
 )
 
+interface ErrorResponse {
+  message?: string;
+}
+
 // Add response interceptor for error handling
 api.interceptors.response.use(
   (response) => response,
-  (error: AxiosError) => {
+  (error: AxiosError<ErrorResponse>) => {
     const message = error.response?.data?.message || "An unexpected error occurred"
 
     // Don't show toast for 401 errors (handled by auth context)

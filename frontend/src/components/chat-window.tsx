@@ -8,7 +8,6 @@ import { formatDistanceToNow } from "date-fns"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Send, ArrowLeft } from "lucide-react"
-import { useAuth } from "@/context/auth-context"
 
 interface ChatWindowProps {
   chat: Chat
@@ -33,7 +32,6 @@ export default function ChatWindow({
 }: ChatWindowProps) {
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(null)
-  const { user } = useAuth()
 
   const getChatName = (): string => {
     if (chat.isGroup) return chat.groupName || "Group Chat"
@@ -142,7 +140,10 @@ export default function ChatWindow({
           </div>
         ) : (
           messages.map((message, index) => {
-            const isCurrentUser = (message.sender === currentUserId) || (message.sender?._id === currentUserId);
+            const isCurrentUser =
+              (typeof message.sender === "string" && message.sender === currentUserId) ||
+              (typeof message.sender === "object" && message.sender._id === currentUserId);
+
             const showAvatar = index === 0 || messages[index - 1].sender !== message.sender;
 
             return (

@@ -9,7 +9,7 @@ export interface User {
 
 export interface Message {
   _id: string
-  sender: string
+  sender: string | { _id: string, name: string }
   receiver: string
   content: string
   timestamp: Date
