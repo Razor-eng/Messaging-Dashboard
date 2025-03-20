@@ -7,6 +7,7 @@ Messaging Dashboard is a real-time messaging application built using the MERN st
 ## Features
 
 - Real-time messaging using WebSockets
+- Real-time bot interaction
 - User authentication with JWT
 - RESTful API with Express and MongoDB
 - Frontend built with Vite, React, and TailwindCSS
