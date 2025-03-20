@@ -35,6 +35,7 @@ Messaging Dashboard is a real-time messaging application built using the MERN st
 │
 ├── package.json     # Root package.json for managing frontend and backend
 ├── README.md        # Documentation
+├── .env
 ```
 
 ## Installation
@@ -52,7 +53,7 @@ Ensure you have the following installed:
 Clone the repository:
 
 ```sh
-git clone https://github.com/your-username/messaging-dashboard.git
+git clone https://github.com/razor-eng/messaging-dashboard.git
 cd messaging-dashboard
 ```
 
@@ -76,6 +77,17 @@ FRONTEND_URL=http://localhost:3000
 ### Frontend (`frontend/.env`)
 
 ```env
+VITE_API_URL=http://localhost:8000
+VITE_SOCKET_URL=http://localhost:8000
+```
+
+### Root (`.env`)
+
+```env
+MONGODB_URI=mongodb+srv://rajat:rajat1995m@cluster0.lji0n.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+PORT=8000
+JWT_SECRET=your_jwt_secret_key
+FRONTEND_URL=http://localhost:3000
 VITE_API_URL=http://localhost:8000
 VITE_SOCKET_URL=http://localhost:8000
 ```
